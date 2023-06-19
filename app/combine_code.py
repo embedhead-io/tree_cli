@@ -3,8 +3,8 @@ import argparse
 import logging
 import pathlib
 import pathspec
-from ..utils import load_ignore_patterns
-from ..tree_cli.generate_tree import DirectoryTree
+from .utils import load_ignore_patterns
+from .generate_tree import DirectoryTree
 
 
 INSTRUCTIONS = """
