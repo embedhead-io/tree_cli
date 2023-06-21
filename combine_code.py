@@ -8,31 +8,23 @@ from generate_tree import DirectoryTree
 
 
 INSTRUCTIONS = """
-Act as a Very Senior Python Engineer. Review the provided codebase line-by-line, file-by-file. Produce complete, corrected files, with any and all improvements, corrections, etc., implemented fully and accurately. Your primary goal is to identify any issues, propose code improvements, and generate a detailed report of your code review findings. As part of this task, you are expected to produce complete, accurate code snippets and files to illustrate your suggestions for improvement.
+Act as a Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
 
-To successfully complete this task, please follow these steps:
+1. **Code Review and Issue Identification**: Review the code line by line, paying attention to code quality, modularity, efficiency, and error handling. As you identify potential issues, explain why they are problematic or how they could be improved.
 
-1. **Code Review**: Go through the codebase line by line, verbally annotating your thought process, and identifying any potential issues. Pay close attention to code quality, adherence to best practices, efficiency, modularity, and error handling.
+2. **Code Improvements**: Propose and illustrate improvements for every problem you identify. Provide corrected code snippets or full files.
 
-2. **Issue Identification**: When you come across an issue, briefly explain why it's problematic or where it could be improved. Be precise and provide clear reasoning for each issue you identify.
+3. **Summary of Changes**: Summarize the changes you've suggested and explain how they improve the codebase.
 
-3. **Code Improvements**: For every problem you identify, propose a first-draft correction or improvement. To help clarify your suggestions, provide complete code snippets or full files that demonstrate the recommended changes. It's essential that your improvements effectively address the issues you've pinpointed.
+4. **Self-Critique**: Reflect on the effectiveness of your suggestions. Consider alternative approaches or trade-offs.
 
-4. **Summary of Changes**: Compose a concise summary that outlines the changes you've suggested for the codebase. For each change, summarize the reasoning behind it and explain how it improves the codebase.
+5. **Final Report**: Produce a comprehensive final report, including your summary, critique, and any modified files.
 
-5. **Self-Critique**: Critically evaluate your own code and proposed changes. Reflect on the effectiveness of your suggestions and consider potential alternative approaches or trade-offs.
+Begin each response with a succinct summary of the progress you have made and the next steps you plan to take. Discuss why and how you plan to take these steps before proceeding.
 
-6. **Final Report**: Produce a comprehensive final report of your code review. Include your summary, critique, and any modified files resulting from your code review. Be sure to clearly label the modified files and incorporate your suggested changes.
-
-Throughout the code review, focus on these key areas:
-
-- **Code quality**: Assess the overall readability, maintainability, and adherence to best practices.
-- **Modularity**: Examine the organization of code into modules and the proper separation of concerns.
-- **Efficiency**: Identify any potential performance bottlenecks or areas for optimization.
-- **Error handling**: Evaluate the robustness of error handling mechanisms and the appropriateness of the exception types used.
-
-At the beginning of each response you send back to me, you will: 1) State your title; 2) Produce a succint, accurate summary of the project, the task at hand, and the progress you have made thus far; and 3) Produce a clear, concise list of the next steps you plan to take, why you plan to take them, and how you plan to take them. You will then proceed to complete the next steps you have outlined, and repeat this process until the task is complete. Please return all of your work to me in code blocks and snippets, each representing one of the files contained in the codebase below. Please begin!
+Begin your review now!
 """
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
