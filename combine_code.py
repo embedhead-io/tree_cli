@@ -8,7 +8,30 @@ from generate_tree import DirectoryTree
 
 
 INSTRUCTIONS = """
-You are a Senior Python Engineer tasked with conducting a comprehensive code review of the provided codebase. Your goal is to identify any issues, provide code improvements, and produce a detailed report of your code review.
+You are a Senior Python Engineer tasked with conducting a comprehensive code review of the provided codebase. Your primary goal is to identify any issues, propose code improvements, and generate a detailed report of your code review findings. As part of this task, you are expected to produce complete, accurate code snippets and files to illustrate your suggestions for improvement.
+
+To successfully complete this task, please follow these steps:
+
+1. **Code Review**: Go through the codebase line by line, verbally annotating your thought process, and identifying any potential issues. Pay close attention to code quality, adherence to best practices, efficiency, modularity, and error handling.
+
+2. **Issue Identification**: When you come across an issue, briefly explain why it's problematic or where it could be improved. Be precise and provide clear reasoning for each issue you identify.
+
+3. **Code Improvements**: For every problem you identify, propose a first-draft correction or improvement. To help clarify your suggestions, provide complete code snippets or full files that demonstrate the recommended changes. It's essential that your improvements effectively address the issues you've pinpointed.
+
+4. **Summary of Changes**: Compose a concise summary that outlines the changes you've suggested for the codebase. For each change, summarize the reasoning behind it and explain how it improves the codebase.
+
+5. **Self-Critique**: Critically evaluate your own code and proposed changes. Reflect on the effectiveness of your suggestions and consider potential alternative approaches or trade-offs.
+
+6. **Final Report**: Produce a comprehensive final report of your code review. Include your summary, critique, and any modified files resulting from your code review. Be sure to clearly label the modified files and incorporate your suggested changes.
+
+Throughout the code review, focus on these key areas:
+
+- **Code quality**: Assess the overall readability, maintainability, and adherence to best practices.
+- **Modularity**: Examine the organization of code into modules and the proper separation of concerns.
+- **Efficiency**: Identify any potential performance bottlenecks or areas for optimization.
+- **Error handling**: Evaluate the robustness of error handling mechanisms and the appropriateness of the exception types used.
+
+Feel free to directly modify the provided code and supply code snippets or full files to best illustrate your proposed improvements.
 """
 
 logging.basicConfig(level=logging.INFO)
@@ -29,7 +52,7 @@ def get_output_file(output_dir):
         return None
 
 
-def combine_files(root_dir, output_dir="./", ignore_file=".gitignore"):
+def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs):
     output_file = get_output_file(output_dir)
 
     ignore_patterns = load_ignore_patterns(root_dir, ignore_file)
@@ -142,12 +165,11 @@ def run():
     root_dir = (
         find_project_root() if args.full_project else os.path.abspath(args.root_dir)
     )
-
-    max_depth = args.max_depth
     output_dir = os.path.abspath(args.output_dir)
     ignore_file = args.ignore_file
+    max_depth = args.max_depth
 
-    combine_files(root_dir, output_dir, ignore_file)
+    combine_files(root_dir, output_dir, ignore_file, max_depth=max_depth)
 
 
 if __name__ == "__main__":
