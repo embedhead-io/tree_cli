@@ -3,7 +3,7 @@ import os
 import pathlib
 import pathspec
 import sys
-from .utils import load_ignore_patterns
+from utils import load_ignore_patterns
 
 PIPE = "|"
 ELBOW = "└──"

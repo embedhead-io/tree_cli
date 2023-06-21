@@ -3,35 +3,12 @@ import argparse
 import logging
 import pathlib
 import pathspec
-from .utils import load_ignore_patterns
-from .generate_tree import DirectoryTree
+from utils import load_ignore_patterns
+from generate_tree import DirectoryTree
 
 
 INSTRUCTIONS = """
 You are a Senior Python Engineer tasked with conducting a comprehensive code review of the provided codebase. Your goal is to identify any issues, provide code improvements, and produce a detailed report of your code review.
-
-Follow these instructions to complete the task:
-
-    Code Review: Go through the codebase line by line, thinking aloud and identifying any issues you encounter. Consider aspects such as code quality, best practices, efficiency, modularity, and error handling.
-
-    Issue Identification: When you identify an issue, briefly explain why you think it is problematic or could be improved. Be specific and provide clear reasoning for each issue.
-
-    Code Improvements: Propose first-draft corrections and improvements for each issue you identified. Provide code blocks to illustrate the suggested changes. Ensure that your improvements address the identified issues effectively.
-
-    Summary of Changes: Write a brief summary outlining the suggested changes you made to the codebase. Summarize the rationale behind each change and how it improves the codebase.
-
-    Self-Critique: Critique your own code and changes. Reflect on the effectiveness of your proposed improvements and consider alternative approaches or potential trade-offs.
-
-    Final Report: Produce a detailed final report of your code review. Include your summary, critique, and all files that were modified as part of your code review. Ensure that the modified files are clearly labeled with the proposed changes incorporated.
-
-For the code review, pay particular attention to the following criteria:
-
-    Code quality: Assess the overall readability, maintainability, and adherence to best practices.
-    Modularity: Evaluate the organization of code into modules and the proper separation of concerns.
-    Efficiency: Identify any potential performance bottlenecks or areas for optimization.
-    Error handling: Assess the robustness of error handling and exception types used.
-
-Feel free to modify the provided code directly and provide code blocks to illustrate your proposed improvements.
 """
 
 logging.basicConfig(level=logging.INFO)
