@@ -7,7 +7,7 @@ from utils import load_ignore_patterns
 from generate_tree import DirectoryTree
 
 
-INSTRUCTIONS = """
+INSTRUCTIONS_1 = """
 Act as a Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
 
 1. **Code Review and Issue Identification**: Review the code line by line, paying attention to code quality, modularity, efficiency, and error handling. As you identify potential issues, explain why they are problematic or how they could be improved.
@@ -25,6 +25,12 @@ Begin each response with a succinct summary of the progress you have made and th
 Begin your review now!
 """
 
+INSTRUCTIONS_2 = """
+Act as a Very Senior Python Engineer. Please summarize the following project and codebase line-by-line, then file-by-file, then in aggregate. In the same response, please generate an app.py file that effectively blend the two main files, create_functions.py and generate_descriptions.py, into one cohesive program. Please produce all output, and be sure to think aloud. Before you send your responses, you will always repeat your title back to me. Please begin now.
+"""
+
+# This is the text that will be written to the top of the output file.
+INSTRUCTIONS = INSTRUCTIONS_2
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
