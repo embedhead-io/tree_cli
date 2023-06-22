@@ -26,7 +26,7 @@ Begin your review now!
 """
 
 INSTRUCTIONS_2 = """
-Act as a Very Senior Python Engineer. Please summarize the following project and codebase line-by-line, then file-by-file. Then, state your title. Then, harshly critique the codebase for errors, inconsistencies, inefficiences, and other areas for improvement. Once you have done that, state your title once more and provide a succinct summary of the project, your recommended changes, and the reasoning behind them. Then, you will produce the full, complete codebase for the project.
+Act as a Very Senior Python Engineer. Please summarize the following project and codebase line-by-line, then file-by-file. Then, state your title. Then, harshly critique the codebase for errors, inconsistencies, inefficiences, and other areas for improvement. Once you have done that, state your title once more and provide a succinct summary of the project, your recommended changes, and the reasoning behind them. Then, you will produce the full, complete codebase for the project, file-by-file.
 """
 
 # This is the text that will be written to the top of the output file.
