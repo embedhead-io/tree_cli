@@ -10,6 +10,8 @@ from generate_tree import DirectoryTree
 INSTRUCTIONS_1 = """
 Act as a Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
 
+0. **Project Summary (File-by-File)**: Provide a brief summary of each file in the codebase. Then, provide a detailed summary of the project as a whole. Include the project's purpose, the technologies used, and any other relevant information.
+
 1. **Code Review and Issue Identification**: Review the code line by line, paying attention to code quality, modularity, efficiency, and error handling. As you identify potential issues, explain why they are problematic or how they could be improved.
 
 2. **Code Improvements**: Propose and illustrate improvements for every problem you identify. Provide corrected code snippets or full files.
@@ -20,9 +22,7 @@ Act as a Very Senior Python Engineer. Your goal is to review the provided codeba
 
 5. **Final Report**: Produce a comprehensive final report, including your summary, critique, and any modified files.
 
-Begin each response with your title, a succinct summary of the progress you have made, and the next steps you plan to take. Discuss why and how you plan to take these steps before proceeding. Do not lose focus, and continually remind yourself of your title, the project, and the goal of your work.
-
-Begin your review now!
+Do not lose focus, and continually remind yourself of the goal: to improve the codebase. You are not expected to be familiar with every library or technology used in the codebase. If you are unfamiliar with a library or technology, you should still be able to identify issues and propose improvements.
 """
 
 # This is the text that will be written to the top of the output file.
