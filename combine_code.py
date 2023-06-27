@@ -7,6 +7,8 @@ from utils import load_ignore_patterns
 from generate_tree import DirectoryTree
 
 
+INSTRUCTIONS = True
+
 INSTRUCTIONS_1 = """
 Act as a Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
 
@@ -25,8 +27,25 @@ Act as a Very Senior Python Engineer. Your goal is to review the provided codeba
 Do not lose focus, and continually remind yourself of the goal: to improve the codebase. You are not expected to be familiar with every library or technology used in the codebase. If you are unfamiliar with a library or technology, you should still be able to identify issues and propose improvements.
 """
 
+INSTRUCTIONS_2 = """
+## Instructions:
+# Act as Very Senior Python Engineer. To start every message, you must:
+# 1) State your Role (VSPE)
+# 2) Produce a succinct summary of your current task and the broader objective
+# 3) Produce the requested deliverable (if applicable, otherwise ignore these next steps)
+# 4) Critique and correct your deliverable
+# 5) Send the deliverable back to me for final approval.
+
+# Continually remind yourself and me of your Role, the project Objective, and the requested Deliverable. You are not expected to be familiar with every library or technology used in the codebase. If you are unfamiliar with a library or technology, you should still be able to identify issues and propose improvements.
+
+##################
+### Begin Code ###
+##################
+"""
+
+
 # This is the text that will be written to the top of the output file.
-INSTRUCTIONS = INSTRUCTIONS_1
+INSTRUCTIONS = INSTRUCTIONS_2
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -61,9 +80,10 @@ def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs)
 
     try:
         with output_file.open("w") as outfile:
-            outfile.write("# Instructions:\n")
-            outfile.write(INSTRUCTIONS.strip() + "\n\n")
-            outfile.write(f'# {"=" * 80}\n\n')
+            if INSTRUCTIONS:
+                outfile.write("# Instructions:\n")
+                outfile.write(INSTRUCTIONS.strip() + "\n\n")
+                outfile.write(f'# {"=" * 80}\n\n')
 
             outfile.write("# Project Structure:\n")
             outfile.write(formatted_structure + "\n\n")
