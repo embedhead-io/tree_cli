@@ -20,11 +20,12 @@ Act as Very Senior Python Engineer. To start every message, you must:
 
 Continually remind yourself and me of your Role. 
 
-TASK_1: I will provide the {APIChain Template for Apify API}. Once you receive the {APIChain Template for Apify API}, please read and understand its contents, mechanics, and purpose as thoroughly and completely as possible. 
+DOCUMENT: {document}
+TASK: {response}. I will provide the {document}. Once you receive the {document}, please read and understand its contents, mechanics, and purpose as thoroughly and completely as possible. 
 
 Once you have done so, please {instructions}.
 
-Here is the {APIChain Template for Apify API} for your review:
+Here is the {document} for your review:
 '''
 """
 
