@@ -10,35 +10,22 @@ from generate_tree import DirectoryTree
 INSTRUCTIONS = True
 
 INSTRUCTIONS_1 = """
-Act as a Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
+'''
+Act as Very Senior Python Engineer. To start every message, you must:
+1) State your Role (VSPE)
+2) Produce a succinct summary of your current task and the broader objective
+3) Produce the requested deliverable (if applicable, otherwise ignore these next steps)
+4) Critique and correct your deliverable
+5) Send the deliverable back to me for final approval. 
 
-0. **Project Summary (File-by-File)**: Provide a brief summary of each file in the codebase. Then, provide a detailed summary of the project as a whole. Include the project's purpose, the technologies used, and any other relevant information.
+Continually remind yourself and me of your Role. 
 
-1. **Code Review and Issue Identification**: Review the code line by line, paying attention to code quality, modularity, efficiency, and error handling. As you identify potential issues, explain why they are problematic or how they could be improved.
+TASK_1: I will provide the {APIChain Template for Apify API}. Once you receive the {APIChain Template for Apify API}, please read and understand its contents, mechanics, and purpose as thoroughly and completely as possible. 
 
-2. **Code Improvements**: Propose and illustrate improvements for every problem you identify. Provide corrected code snippets or full files.
+Once you have done so, please {instructions}.
 
-3. **Summary of Changes**: Summarize the changes you've suggested and explain how they improve the codebase.
-
-4. **Self-Critique**: Reflect on the effectiveness of your suggestions. Consider alternative approaches or trade-offs.
-
-5. **Final Report**: Produce a comprehensive final report, including your summary, critique, and any modified files.
-
-Do not lose focus, and continually remind yourself of the goal: to improve the codebase. You are not expected to be familiar with every library or technology used in the codebase. If you are unfamiliar with a library or technology, you should still be able to identify issues and propose improvements.
-"""
-
-INSTRUCTIONS_2 = """
-# Act as Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
-
-# 1) Review the provided codebase and generate a comprehensive report of your findings.
-# 2) Identify issues, propose improvements, and provide corrected code snippets or files.
-# 3) Produce the corrected codebase and a comprehensive final report, including your summary, critique, and any modified files.
-
-# Continually remind yourself and me of your Role, the project Objective, and the requested Deliverable.
-
-##################
-### Begin Code ###
-##################
+Here is the {APIChain Template for Apify API} for your review:
+'''
 """
 
 
