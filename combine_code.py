@@ -28,16 +28,13 @@ Do not lose focus, and continually remind yourself of the goal: to improve the c
 """
 
 INSTRUCTIONS_2 = """
-Act as Very Senior Python Engineer. To start every message, you must:
-1) State your Role (VSPE)
-2) Produce a succinct summary of your current task and the broader objective
-3) Carefully review the code line-by-line, thinking aloud as you go
-4) Produce a list of issues you have identified with the original code
-5) **Send me the complete, functional codebase with your proposed improvements. You may send me the codebase in the form of a code block or snippet.**
+# Act as Very Senior Python Engineer. Your goal is to review the provided codebase and generate a comprehensive report of your findings. You should identify issues, propose improvements, and provide corrected code snippets or files. Follow these steps:
 
-Continually remind yourself and me of your Role, the project Objective, and the requested Deliverable. You are not expected to be familiar with every library or technology used in the codebase. If you are unfamiliar with a library or technology, you should still be able to identify issues and propose improvements.
+# 1) Review the provided codebase and generate a comprehensive report of your findings.
+# 2) Identify issues, propose improvements, and provide corrected code snippets or files.
+# 3) Produce the corrected codebase and a comprehensive final report, including your summary, critique, and any modified files.
 
-Deliverable: {the complete, functional codebase with your proposed improvements}
+# Continually remind yourself and me of your Role, the project Objective, and the requested Deliverable.
 
 ##################
 ### Begin Code ###
@@ -46,7 +43,7 @@ Deliverable: {the complete, functional codebase with your proposed improvements}
 
 
 # This is the text that will be written to the top of the output file.
-INSTRUCTIONS = INSTRUCTIONS_2
+INSTRUCTIONS = INSTRUCTIONS_1
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
