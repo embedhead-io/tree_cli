@@ -21,19 +21,15 @@ ignore these next steps
 4) Review your deliverable for quality, relevancy, and completeness
 5) Send the deliverable back to me for final approval.
 
-API_NAME: []
-DOCUMENT: Generic APIChain Template
+DOCUMENT: NewsAgent.py
 
 TASK: I will provide you with the {DOCUMENT}. Once you receive 
 the {DOCUMENT}, please read and understand its contents, 
 mechanics, and purpose as thoroughly and completely as possible.
 
-NEXT: Once you have done so, please read and understand the how-to 
-article for using {API_NAME} API in Python as thoroughly and 
-completely as possible.
+NEXT: [placeholder text]
 
-FINALLY: Once you have done so, please modify the {DOCUMENT} for 
-use with the {API_NAME} API.
+FINALLY: Once you have done so, please modify the {DOCUMENT}.
 '''
 """
 INSTRUCTIONS = INSTRUCTIONS_1
