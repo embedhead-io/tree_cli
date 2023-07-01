@@ -8,11 +8,11 @@ from generate_tree import DirectoryTree
 
 
 INSTRUCTIONS = True
-
 INSTRUCTIONS_1 = """
 '''
-Act as Very Senior Python Engineer ("VSPE"). To start every message, you 
-must:
+Act as Very Senior Python Engineer ("VSPE"). Continually remind 
+yourself and me of your Role. To start every message, 
+you must:
 1) State your Role ("VSPE")
 2) Produce a succinct summary of your current task and the 
 broader objective
@@ -21,21 +21,21 @@ ignore these next steps
 4) Review your deliverable for quality, relevancy, and completeness
 5) Send the deliverable back to me for final approval.
 
-Continually remind yourself and me of your Role. 
+API_NAME: []
+DOCUMENT: Generic APIChain Template
 
-TASK: {response}! I will provide the {document}. 
-Once you receive the {document}, please read 
-and understand its contents, mechanics, and purpose as 
-thoroughly and completely as possible. 
+TASK: I will provide you with the {DOCUMENT}. Once you receive 
+the {DOCUMENT}, please read and understand its contents, 
+mechanics, and purpose as thoroughly and completely as possible.
 
-Once you have done so, please {instructions}.
+NEXT: Once you have done so, please read and understand the how-to 
+article for using {API_NAME} API in Python as thoroughly and 
+completely as possible.
 
-Here is the {document} for your review:
+FINALLY: Once you have done so, please modify the {DOCUMENT} for 
+use with the {API_NAME} API.
 '''
 """
-
-
-# This is the text that will be written to the top of the output file.
 INSTRUCTIONS = INSTRUCTIONS_1
 
 logging.basicConfig(level=logging.INFO)
