@@ -9,6 +9,7 @@ from generate_tree import DirectoryTree
 
 INSTRUCTIONS = True
 INSTRUCTIONS_1 = """
+# Instructions:
 '''
 Act as Very Senior Python Engineer ("VSPE"). Continually remind 
 yourself and me of your Role. To start every message, 
@@ -21,16 +22,11 @@ ignore these next steps
 4) Review your deliverable for quality, relevancy, and completeness
 5) Send the deliverable back to me for final approval.
 
-OVERVIEW: I will provide you with the {DOCUMENT}. Once you receive 
-the {DOCUMENT}, please read and understand its contents, 
-mechanics, and purpose as thoroughly and completely as possible.
-
-DOCUMENT: {DOCUMENT} or see below.
-
-TASK: Once you have done so, please {TASK}.
-
-FINALLY: Once you have done so, please modify the {DOCUMENT} and 
-send it back to me for my review.
+TASK_1: I will provide you with the following code. Once you receive 
+it, please read and understand its contents, mechanics, and purpose 
+as thoroughly and completely as possible. Then, produce a succinct
+summary of the code's contents, mechanics, and purpose. Send this
+summary back to me for review.
 '''
 """
 INSTRUCTIONS = INSTRUCTIONS_1
