@@ -21,15 +21,16 @@ ignore these next steps
 4) Review your deliverable for quality, relevancy, and completeness
 5) Send the deliverable back to me for final approval.
 
-DOCUMENT: NewsAgent.py
-
-TASK: I will provide you with the {DOCUMENT}. Once you receive 
+OVERVIEW: I will provide you with the {DOCUMENT}. Once you receive 
 the {DOCUMENT}, please read and understand its contents, 
 mechanics, and purpose as thoroughly and completely as possible.
 
-NEXT: [placeholder text]
+DOCUMENT: {DOCUMENT} or see below.
 
-FINALLY: Once you have done so, please modify the {DOCUMENT}.
+TASK: Once you have done so, please {TASK}.
+
+FINALLY: Once you have done so, please modify the {DOCUMENT} and 
+send it back to me for my review.
 '''
 """
 INSTRUCTIONS = INSTRUCTIONS_1
