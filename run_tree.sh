@@ -2,7 +2,7 @@
 
 ### FOR DEVELOPER ###
 # Run the application
-python3 ~/_DEV/_INTERNAL/tree_cli/combine_code.py
+python3 ~/_DEV/_INTERNAL/Tree_CLI/combine_code.py
 
 
 ### FOR USER ###
