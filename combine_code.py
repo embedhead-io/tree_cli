@@ -4,7 +4,7 @@ import logging
 import pathlib
 import pathspec
 
-from utils import load_ignore_patterns
+from utils import find_project_root, load_ignore_patterns
 from generate_tree import DirectoryTree
 
 logging.basicConfig(level=logging.INFO)

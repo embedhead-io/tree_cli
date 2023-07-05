@@ -16,7 +16,7 @@ def load_ignore_patterns(root_dir, ignore_file=".gitignore"):
     # Construct the full ignore file path
     ignore_file_path = pathlib.Path(root_dir) / ignore_file
     ignore_patterns = []
-    
+
     try:
         # If the ignore file is a file, read and split its lines into patterns
         if ignore_file_path.is_file():
@@ -42,7 +42,7 @@ def find_project_root(path="."):
     path = pathlib.Path(path).resolve()
 
     # Loop up the directory tree until the root of the file system is reached
-    while path != path.parent: 
+    while path != path.parent:
         # If a .git directory or .gitignore file is found, this directory is the project root
         if (path / ".git").exists() or (path / ".gitignore").exists():
             return str(path)
@@ -51,4 +51,3 @@ def find_project_root(path="."):
 
     # If no project root was found, raise an exception
     raise Exception("No project root found")
- 
