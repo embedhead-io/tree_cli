@@ -3,12 +3,15 @@ import argparse
 import logging
 import pathlib
 import pathspec
+
 from utils import load_ignore_patterns
 from generate_tree import DirectoryTree
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-INSTRUCTIONS = True
-INSTRUCTIONS_1 = """
+INSTRUCTIONS_FLAG = True
+INSTRUCTIONS = """
 '''
 Act as Very Senior Python Engineer ("VSPE"). Continually remind 
 yourself and me of your Role. To start every message, 
@@ -29,15 +32,11 @@ completely as possible.
 
 '''
 """
-INSTRUCTIONS = INSTRUCTIONS_1
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 def get_output_file(output_dir):
     """
-    This function generates the output file path.
+    Generates the output file path.
 
     :param output_dir: The directory where the output file will be saved.
     :return: A Path object representing the output file path.
@@ -45,48 +44,55 @@ def get_output_file(output_dir):
     try:
         return pathlib.Path(output_dir) / "combined_code.txt"
     except Exception as e:
-        print(f"Error while generating output file path. Error: {str(e)}")
+        logger.error(f"Error while generating output file path. Error: {str(e)}")
         return None
 
 
 def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs):
+    """
+    Combine files from root directory into one output file.
+
+    :param root_dir: Root directory from which files are to be combined.
+    :param output_dir: Directory where the output file will be stored.
+    :param ignore_file: Name of the ignore file (default is .gitignore).
+    """
     output_file = get_output_file(output_dir)
 
     ignore_patterns = load_ignore_patterns(root_dir, ignore_file)
-
     spec = pathspec.PathSpec.from_lines(
         pathspec.patterns.GitWildMatchPattern, ignore_patterns
     )
 
     directory_tree = DirectoryTree(root_dir, dir_only=False, output_file=output_file)
     directory_tree.generate()
-    formatted_structure = "\n".join(directory_tree._generator._tree)
 
     try:
         with output_file.open("w") as outfile:
-            if INSTRUCTIONS:
+            if INSTRUCTIONS_FLAG:
                 outfile.write("# Instructions:\n")
                 outfile.write(INSTRUCTIONS.strip() + "\n\n")
                 outfile.write(f'# {"=" * 80}\n\n')
 
             outfile.write("# Project Structure:\n")
+            formatted_structure = "\n".join(directory_tree._generator._tree)
             outfile.write(formatted_structure + "\n\n")
 
             for root, dirs, files in os.walk(root_dir):
                 relative_root = pathlib.Path(root).relative_to(root_dir)
                 for file_name in files:
-                    file_path = pathlib.Path(root) / file_name
-                    if spec.match_file(str(file_path.relative_to(root_dir))):
+                    if spec.match_file(str((relative_root / file_name).as_posix())):
                         continue
                     outfile.write(f'\n# {"=" * 80}\n')
                     outfile.write(f"# {relative_root / file_name}\n")
                     outfile.write(f'# {"=" * 80}\n\n')
+
+                    file_path = pathlib.Path(root) / file_name
                     try:
                         with open(
                             file_path, "r", encoding="utf-8", errors="ignore"
                         ) as infile:
                             outfile.write(infile.read())
-                    except Exception as e:  # broaden exception handling
+                    except Exception as e:
                         logger.error(
                             f"An error occurred while reading file: {file_path}. Error: {e}"
                         )
@@ -97,22 +103,10 @@ def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs)
         )
 
 
-def find_project_root():
-    cur_dir = os.getcwd()
-
-    while True:
-        if os.path.exists(os.path.join(cur_dir, ".git")) or os.path.exists(
-            os.path.join(cur_dir, ".gitignore")
-        ):
-            return cur_dir
-        else:
-            parent_dir = os.path.dirname(cur_dir)
-            if parent_dir == cur_dir:
-                raise Exception("No project root found")
-            cur_dir = parent_dir
-
-
 def run():
+    """
+    Parses arguments and runs the combine_files function with the given parameters.
+    """
     parser = argparse.ArgumentParser(
         prog="combine_code",
         description="Combine-Code, a tool for analyzing a project structure and combining its code into a single output file.",
