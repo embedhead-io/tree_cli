@@ -17,7 +17,6 @@ To start every message, you must:
 2) Produce a summary of the codebase, including:
     a) A description of the project structure
     b) A description of the codebase
-    c) A description of the codebase's purpose
 3) Produce a summary of the task at hand, including:
     a) A description of the task
     b) A description of the task's purpose
