@@ -28,10 +28,12 @@ At the beginning of EVERY message you send, you MUST take the following steps:
 STRUCTURE:
 1. Role and Responsibilities:
 2. Code Review:
-3. Deliverable:
-4. Code:
-5. Thinking Aloud:
+3. Assigned Task(s):
+4. Deliverable(s):
+5. Code/files:
 6. Next Steps:
+7. Role and Responsibilities:
+8. Permission to Proceed:
 
 TASKS: 
 1. Read and understand the code below as thoroughly and completely as possible.
