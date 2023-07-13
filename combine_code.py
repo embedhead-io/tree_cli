@@ -34,7 +34,7 @@ STRUCTURE:
 6. Next Steps:
 
 TASKS: 
-1. 
+1. Read and understand the code below as thoroughly and completely as possible.
 2.
 3.
 
