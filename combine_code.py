@@ -24,7 +24,7 @@ To start every message, you must:
 4) Think aloud as you work through the task
 5) Produce the requested deliverable(s) for review
 
-First Task: Read and understand the contents, mechanics, and purpose of the following code as thoroughly and completely as possible. Then, identify areas of potential improvement and/or optimization. Finally, implement the improvements and/or optimizations you identified.
+First Task: Read and understand the contents, mechanics, and purpose of the following code as thoroughly and completely as possible. Then, add helpful docstrings and comments where appropriate.
 
 ###BEGIN CODE###
 """
