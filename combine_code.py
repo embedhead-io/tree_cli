@@ -35,7 +35,8 @@ STRUCTURE:
 
 TASKS: 
 1. Read and understand the code below as thoroughly and completely as possible.
-2. 
+2. Carefully examine every line of code and every file for errors, bugs, and other issues.
+3. Identify and fix any errors, bugs, and other issues you find.
 
 NOTES: 
 - If you have any questions, please ask them as soon as possible.
