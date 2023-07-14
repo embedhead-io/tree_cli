@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 INSTRUCTIONS_FLAG = True
 INSTRUCTIONS = """
-ROLE: Act as a Senior Python API Developer ("SPAD"). Think aloud as you work through the Steps to the assigned Task(s) below. 
+Hello! Act as a Senior Python API Developer ("SPAD"). Think aloud as you work through the Steps to the assigned Task(s) below. 
 
 At the beginning of EVERY message you send, you MUST take the following steps:
 1. Remind yourself of your Role and Responsibilities.
