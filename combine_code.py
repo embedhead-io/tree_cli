@@ -27,7 +27,7 @@ At the beginning of every message, you will include:
 5. Any code, files, or other deliverables you have created
 6. Any questions you have
 
-Task: Code Review
+*** TASK 1 ***
 
 Think aloud, and continuously repeat your role and responsibilities, the project you are working on, the task you have been assigned, where you are in the process, any code, files, or other deliverables you have created, and any questions you have.
 
