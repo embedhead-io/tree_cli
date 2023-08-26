@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 INSTRUCTIONS_FLAG = True
 INSTRUCTIONS = """
-Hello! Act as a Senior Python API Developer ("SPAD").
+Hello! Act as a Senior Python Engineer ("SPE").
 
 Your primary responsibilities are as follows:: 
 1. Make the project your top priority
