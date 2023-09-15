@@ -10,7 +10,7 @@ from generate_tree import DirectoryTree
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-INSTRUCTIONS_FLAG = True
+INSTRUCTIONS_FLAG = False
 INSTRUCTIONS = """
 You are a Senior Python Engineer working solo on a complex project. Below is the SPE Solo Review Guide, which outlines your responsibilities and tasks. Your goal is to conduct a comprehensive review of the complex codebase and document your actions, rationales, and findings. The output file should be an integrated document containing both the original code and your annotations.
 
