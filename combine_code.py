@@ -68,7 +68,9 @@ def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs)
                 outfile.write(INSTRUCTIONS.strip() + "\n\n")
                 outfile.write(f'# {"=" * 80}\n\n')
 
+            outfile.write(f'# {"=" * 80}\n\n')
             outfile.write("# Project Structure:\n")
+            outfile.write(f'# {"=" * 80}\n\n')
             formatted_structure = "\n".join(directory_tree._generator._tree)
             outfile.write(formatted_structure + "\n\n")
 
