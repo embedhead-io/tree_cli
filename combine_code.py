@@ -3,29 +3,17 @@ import argparse
 import logging
 import pathlib
 import pathspec
-
 from utils import find_project_root, load_ignore_patterns
 from generate_tree import DirectoryTree
 
+# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Constants
 INSTRUCTIONS_FLAG = False
 INSTRUCTIONS = """
-Act as a Senior Python Engineer (SPE) working solo on a complex project. Below is the SPE Solo Review Guide, which outlines your responsibilities and tasks. Your goal is to conduct a comprehensive review of the complex codebase and document your actions, rationales, and findings. The output file should be an integrated document containing both the original code and your annotations.
-
-# SPE Solo Review Guide for Complex Codebase
-
-## Responsibilities
-- **Code Review**: Deeply understand the codebase's architecture, logic, and dependencies.
-- **Optimize**: Pinpoint performance bottlenecks, redundancy, or security risks, and improve them.
-- **Debug**: Identify and correct any bugs, focusing on critical or non-obvious ones.
-- **Document**: Summarize your actions, rationales, and findings in an output file, intermixed with the original code.
-
-## Your Task
-Conduct a comprehensive review of the complex codebase. Document all actions, changes, and findings in a single output file, integrated with the original code.
-
-### BEGIN CODE REVIEW ###
+Act as a Python Engineer. Navigate to the bottom of this message, then read from the bottom up. Produce a summary of what you have read. THEN, POPULATE THE unpack_code.py AND unpack_struc.py so that unpack_struc.py unpacks the project structure from combined_code.txt (contained in the project tree at the top of the file) into the working directory, where the highest level directory is the folder created. Then, once the subfolders have also been created, create ALL of the code files in ALL of the folders within the project, complete with their code. The files are named between lines of hash symbols and the code for each is BELOW the title. Begin:
 """
 
 
@@ -52,25 +40,24 @@ def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs)
     :param ignore_file: Name of the ignore file (default is .gitignore).
     """
     output_file = get_output_file(output_dir)
-
     ignore_patterns = load_ignore_patterns(root_dir, ignore_file)
     spec = pathspec.PathSpec.from_lines(
         pathspec.patterns.GitWildMatchPattern, ignore_patterns
     )
-
     directory_tree = DirectoryTree(root_dir, dir_only=False, output_file=output_file)
     directory_tree.generate()
 
     try:
         with output_file.open("w") as outfile:
             if INSTRUCTIONS_FLAG:
-                outfile.write("# Instructions:\n")
-                outfile.write(INSTRUCTIONS.strip() + "\n\n")
-                outfile.write(f'# {"=" * 80}\n\n')
+                outfile.write(
+                    "# Instructions:\n"
+                    + INSTRUCTIONS.strip()
+                    + "\n\n"
+                    + f'# {"=" * 80}\n\n'
+                )
 
-            outfile.write(f'# {"=" * 80}\n')
-            outfile.write("# Project Structure:\n")
-            outfile.write(f'# {"=" * 80}\n\n')
+            outfile.write(f'# {"=" * 80}\n# Project Structure:\n# {"=" * 80}\n\n')
             formatted_structure = "\n".join(directory_tree._generator._tree)
             outfile.write(formatted_structure + "\n\n")
 
@@ -79,10 +66,9 @@ def combine_files(root_dir, output_dir="./", ignore_file=".gitignore", **kwargs)
                 for file_name in files:
                     if spec.match_file(str((relative_root / file_name).as_posix())):
                         continue
-                    outfile.write(f'\n# {"=" * 80}\n')
-                    outfile.write(f"# {relative_root / file_name}\n")
-                    outfile.write(f'# {"=" * 80}\n\n')
-
+                    outfile.write(
+                        f'\n# {"=" * 80}\n# {relative_root / file_name}\n# {"=" * 80}\n\n'
+                    )
                     file_path = pathlib.Path(root) / file_name
                     try:
                         with open(
@@ -118,14 +104,6 @@ def run():
     )
 
     parser.add_argument(
-        "-d",
-        "--max_depth",
-        type=int,
-        default=3,
-        help="The maximum depth for traversing the directory tree (default: 3).",
-    )
-
-    parser.add_argument(
         "-o",
         "--output_dir",
         type=str,
@@ -143,22 +121,20 @@ def run():
 
     parser.add_argument(
         "-f",
-        "--full-project",
+        "--full_project",
         action="store_true",
         default=True,
         help="Perform a full project scan regardless of the location (default: False).",
     )
 
     args = parser.parse_args()
-
     root_dir = (
         find_project_root() if args.full_project else os.path.abspath(args.root_dir)
     )
     output_dir = os.path.abspath(args.output_dir)
     ignore_file = args.ignore_file
-    max_depth = args.max_depth
 
-    combine_files(root_dir, output_dir, ignore_file, max_depth=max_depth)
+    combine_files(root_dir, output_dir, ignore_file)
 
 
 if __name__ == "__main__":
